@@ -671,22 +671,32 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
+  transition-property: opacity, visibility;
+  transition-duration: var(--primary-transition-duration);
+  transition-timing-function: var(--primary-transition-timing-function);
 }
 
 .is-hidden {
   opacity: 0;
   pointer-events: none;
-  visibility: 0;
+  visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5) rotate(90deg);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
   background-color: var(--primary-white-color);
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+  transition-property: transform;
+  transition-duration: var(--primary-transition-duration);
+  transition-timing-function: var(--primary-transition-timing-function);
 }
 
 .modal-button {
